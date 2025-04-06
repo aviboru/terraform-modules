@@ -1,19 +1,5 @@
-provider "aws" {
-  region = var.region
-}
-
-# Provider alias that assumes a role into the target AWS account for the given environment.
-provider "aws" {
-  alias  = "env"
-  region = var.region
-
-  assume_role {
-    role_arn = var.assume_role_arn
-  }
-}
-
 module "eks_cluster" {
-  source    = "./modules/eks"
+  source    = "../../modules/eks"
   providers = {
     aws = aws.env
   }

@@ -1,9 +1,10 @@
 terraform {
   backend "remote" {
-    organization = "your-hcp-organization-name"    # 🔁 Replace with your HCP org name
+    hostname     = "app.terraform.io"
+    organization = "avi-lab"
 
     workspaces {
-      name = "eks-${terraform.workspace}"          # Supports multiple workspaces (dev, qa, prod, etc.)
+      name = "gh-docker-eks-hcp-dev"
     }
   }
 }
