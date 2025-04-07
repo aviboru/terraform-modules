@@ -1,6 +1,6 @@
 # IAM Role for EKS Cluster Control Plane
 resource "aws_iam_role" "eks_cluster_role" {
-  name = "${var.cluster_name}-role"
+  name = "${var.cluster_name}-${var.environment}-role"
   assume_role_policy = jsonencode({
     Version   = "2012-10-17",
     Statement = [{
@@ -18,7 +18,7 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
 
 # IAM Role for Worker Nodes
 resource "aws_iam_role" "eks_nodes_role" {
-  name = "${var.cluster_name}-nodes-role"
+  name = "${var.cluster_name}-${var.environment}-nodes-role"
   assume_role_policy = jsonencode({
     Version   = "2012-10-17",
     Statement = [{
@@ -46,7 +46,7 @@ resource "aws_iam_role_policy_attachment" "cloudwatch_agent_policy" {
 
 # EKS Cluster in Auto Mode
 resource "aws_eks_cluster" "this" {
-  name     = var.cluster_name
+  name     = "${var.cluster_name}-${var.environment}"
   role_arn = aws_iam_role.eks_cluster_role.arn
   version  = var.k8s_version
 
