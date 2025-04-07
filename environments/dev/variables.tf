@@ -75,16 +75,19 @@ variable "tags" {
 variable "app_name" {
   description = "Base name of the application"
   type        = string
+  default     = "nodejs"
 }
 
 variable "image" {
   description = "Docker image name"
   type        = string
+  default     = "aviboru88/gh-docker-eks-hcp:257351fa3c00f76b85bb09eef563579ed0b465c6"
 }
 
 variable "container_name" {
   description = "Container name"
   type        = string
+  default     = "nodejs"
 }
 
 variable "container_port" {
