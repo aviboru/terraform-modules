@@ -10,7 +10,7 @@ resource "kubernetes_deployment" "eks_app" {
     labels = {
       app = format("%s-%s", var.name, var.environment)
     }
-    namespace = format("%s-%s", var.name, var.environment)space
+    namespace = format("%s-%s", var.name, var.environment)
   }
 
   spec {
@@ -46,7 +46,7 @@ resource "kubernetes_deployment" "eks_app" {
 resource "kubernetes_service" "eks_service" {
   metadata {
     name = format("%s-%s", var.name, var.environment)
-    namespace = format("%s-%s", var.name, var.environment)space
+    namespace = format("%s-%s", var.name, var.environment)
   }
 
   spec {

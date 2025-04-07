@@ -77,12 +77,6 @@ variable "app_name" {
   type        = string
 }
 
-variable "environment" {
-  description = "Deployment environment"
-  type        = string
-  default     = "dev"
-}
-
 variable "image" {
   description = "Docker image name"
   type        = string
