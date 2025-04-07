@@ -84,5 +84,6 @@ resource "aws_eks_cluster" "this" {
     resources = ["secrets"]
   }
 
+  bootstrap_self_managed_addons = false
   tags = var.tags
 }
