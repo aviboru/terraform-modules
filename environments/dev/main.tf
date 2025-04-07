@@ -1,5 +1,5 @@
 module "eks_cluster" {
-  source    = "git::https://github.com/aviboru/terraform-modules.git//modules/eks?ref=main"
+  source    = "git::https://github.com/aviboru/terraform-modules.git//modules/eks-cluster?ref=main"
   providers = {
     aws = aws.env
   }
