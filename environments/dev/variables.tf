@@ -72,3 +72,35 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+variable "app_name" {
+  description = "Base name of the application"
+  type        = string
+}
+
+variable "environment" {
+  description = "Deployment environment"
+  type        = string
+  default     = "dev"
+}
+
+variable "image" {
+  description = "Docker image name"
+  type        = string
+}
+
+variable "container_name" {
+  description = "Container name"
+  type        = string
+}
+
+variable "container_port" {
+  description = "Port exposed by the container"
+  type        = number
+  default     = 3000
+}
+
+variable "replicas" {
+  description = "Number of replicas"
+  type        = number
+  default     = 2
+}

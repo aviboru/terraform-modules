@@ -1,10 +1,16 @@
+
+resource "kubernetes_namespace" "this" {
+  metadata {
+    name = format("%s-%s", var.name, var.environment)
+  }
+}
 resource "kubernetes_deployment" "eks_app" {
   metadata {
-    name = var.name
+    name = format("%s-%s", var.name, var.environment)
     labels = {
-      app = var.name
+      app = format("%s-%s", var.name, var.environment)
     }
-    namespace = var.namespace
+    namespace = format("%s-%s", var.name, var.environment)space
   }
 
   spec {
@@ -12,14 +18,14 @@ resource "kubernetes_deployment" "eks_app" {
 
     selector {
       match_labels = {
-        app = var.name
+        app = format("%s-%s", var.name, var.environment)
       }
     }
 
     template {
       metadata {
         labels = {
-          app = var.name
+          app = format("%s-%s", var.name, var.environment)
         }
       }
 
@@ -39,13 +45,13 @@ resource "kubernetes_deployment" "eks_app" {
 
 resource "kubernetes_service" "eks_service" {
   metadata {
-    name = var.name
-    namespace = var.namespace
+    name = format("%s-%s", var.name, var.environment)
+    namespace = format("%s-%s", var.name, var.environment)space
   }
 
   spec {
     selector = {
-      app = var.name
+      app = format("%s-%s", var.name, var.environment)
     }
 
     port {

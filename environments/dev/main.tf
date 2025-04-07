@@ -27,3 +27,12 @@ module "eks_app" {
   container_name  = "gh-docker-eks-hcp"
   container_port  = 3000
 }
+module "eks_app" {
+  source          = "../../modules/eks-app"
+  name            = var.app_name
+  environment     = var.environment
+  image           = var.image
+  container_name  = var.container_name
+  container_port  = var.container_port
+  replicas        = var.replicas
+}
