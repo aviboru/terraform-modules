@@ -1,4 +1,4 @@
-resource "kubernetes_deployment" "nodejs_app" {
+resource "kubernetes_deployment" "eks_app" {
   metadata {
     name = var.name
     labels = {
@@ -37,7 +37,7 @@ resource "kubernetes_deployment" "nodejs_app" {
   }
 }
 
-resource "kubernetes_service" "nodejs_service" {
+resource "kubernetes_service" "eks_service" {
   metadata {
     name = var.name
     namespace = var.namespace

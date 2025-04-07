@@ -16,3 +16,14 @@ module "eks_cluster" {
   kms_key_arn             = var.kms_key_arn
   tags                    = merge(var.tags, { Environment = var.environment })
 }
+
+module "eks_app" {
+  source          = "git::https://github.com/aviboru/terraform-modules.git//modules/eks-app?ref=main"
+
+  name            = "gh-docker-eks-hcp"
+  namespace       = "default"
+  replicas        = 2
+  image           = "docker.io/aviboru/gh-docker-eks-hcp:latest"
+  container_name  = "gh-docker-eks-hcp"
+  container_port  = 3000
+}

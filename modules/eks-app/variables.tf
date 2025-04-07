@@ -23,7 +23,7 @@ variable "image" {
 variable "container_name" {
   description = "Name of the container in the pod"
   type        = string
-  default     = "nodejs-container"
+  default     = "app-container"
 }
 
 variable "container_port" {
