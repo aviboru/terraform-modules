@@ -59,22 +59,11 @@ resource "aws_eks_cluster" "this" {
 
   compute_config {
     enabled       = true
+    node_pools    = var.node_pools
     node_role_arn = aws_iam_role.eks_nodes_role.arn
-
-    dynamic "node_pools" {
-      for_each = var.node_pools
-      content {
-        name           = node_pools.value.name
-        subnet_ids     = node_pools.value.subnet_ids
-        instance_types = node_pools.value.instance_types
-        min_size       = node_pools.value.min_size
-        max_size       = node_pools.value.max_size
-        desired_size   = node_pools.value.desired_size
-      }
-    }
   }
 
-  kubernetes_networking_config {
+  kubernetes_network_config {
     elastic_load_balancing {
       enabled = true
     }
@@ -83,12 +72,6 @@ resource "aws_eks_cluster" "this" {
   storage_config {
     block_storage {
       enabled = true
-    }
-  }
-
-  cluster_addons = {
-    amazon-cloudwatch-observability = {
-      most_recent = true
     }
   }
 
