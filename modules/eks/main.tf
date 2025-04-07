@@ -84,6 +84,10 @@ resource "aws_eks_cluster" "this" {
     resources = ["secrets"]
   }
 
+  access_config {
+    authentication_mode = "API_AND_CONFIG_MAP"
+  }
+
   bootstrap_self_managed_addons = false
   tags = var.tags
 }
