@@ -5,6 +5,7 @@ module "eks_cluster" {
   }
 
   cluster_name            = var.cluster_name
+  environment             = var.environment
   subnet_ids              = var.subnet_ids
   endpoint_public_access  = var.endpoint_public_access
   endpoint_private_access = var.endpoint_private_access
