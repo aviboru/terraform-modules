@@ -53,7 +53,7 @@ variable "node_pools" {
 variable "k8s_version" {
   description = "Kubernetes version for the EKS cluster"
   type        = string
-  default     = "1.23"
+  default     = "1.32"
 }
 
 variable "enabled_cluster_log_types" {
