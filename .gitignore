@@ -30,10 +30,11 @@ coverage/
 # OS generated files
 .DS_Store
 Thumbs.db
+__MACOSX/
 
 # Terraform
 .terraform/
-*.tfstate
+*.tfstate*
 *.tfstate.backup
 .crash.log
 .terraform.lock.hcl
